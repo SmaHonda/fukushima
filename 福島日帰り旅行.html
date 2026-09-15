@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>私たちの福島日帰り旅行</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9f6;
+            color: #4a4a4a;
+            padding: 20px 16px 40px 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-container {
+            width: 100%;
+            max-width: 393px; /* 貼近 iPhone 16 寬度 */
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+
+        .header {
+            background-color: #e3ebd9;
+            padding: 24px 20px 20px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            color: #3b5238;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: #6c7c69;
+            margin-bottom: 12px;
+        }
+
+        .weather-notice {
+            background-color: #f2f5ee;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 12px;
+            color: #556352;
+            line-height: 1.4;
+            text-align: left;
+            border: 1px solid #e3ebd9;
+        }
+
+        .weather-text {
+            margin-bottom: 10px;
+        }
+
+        .weather-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #ffffff;
+            color: #3b5238;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 8px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid #d4dec9;
+            transition: background-color 0.2s;
+        }
+
+        .weather-btn:active {
+            background-color: #e8ede3;
+        }
+
+        .timeline {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .spot-card {
+            background: #fafbfc;
+            border: 1px solid #edf1ee;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .spot-image-box {
+            width: 100%;
+            height: 170px;
+            background-color: #eef2ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8da18b;
+            font-size: 13px;
+            border-bottom: 1px solid #edf1ee;
+            position: relative;
+        }
+
+        .spot-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .spot-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #3b5238;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .spot-content {
+            padding: 16px;
+        }
+
+        .spot-title {
+            font-size: 17px;
+            font-weight: bold;
+            color: #2c3e2b;
+            margin-bottom: 6px;
+        }
+
+        .spot-desc {
+            font-size: 13px;
+            color: #666666;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .map-btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .map-btn {
+            display: block;
+            flex: 1;
+            text-align: center;
+            background-color: #edf2ea;
+            color: #3b5238;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .map-btn.parking {
+            background-color: #e3ebd9;
+            color: #2c3e2b;
+            border: 1px solid #d4dec9;
+        }
+
+        .map-btn:active, .map-btn.parking:active {
+            background-color: #dbe5d7;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 11px;
+            color: #999999;
+            padding: 10px 20px 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-container">
+        <!-- 標題與天氣提醒 -->
+        <div class="header">
+            <h1>福島日帰り旅行</h1>
+            <p>私たちの特別プラン</p>
+            <div class="weather-notice">
+                <div class="weather-text">【お知らせ】山や湖の近くは風が強いです。上着と傘を持って行きましょう。出発前にガソリンを確認してください。</div>
+                <a href="https://tenki.jp/forecast/2/10/3630/7202/10days.html" target="_blank" class="weather-btn">天気予報を見る (tenki.jp)</a>
+            </div>
+        </div>
+
+        <!-- 行程列表 -->
+        <div class="timeline">
+
+            <!-- 景點 1：大內宿 -->
+            <div class="spot-card">
+                <div class="spot-image-box">
+                    <span class="spot-number">01</span>
+                    <img src="https://lh3.googleusercontent.com/d/15g2BpnsvVIKcluBlipQSy__ZJhtC0amb" alt="大内宿">
+                </div>
+                <div class="spot-content">
+                    <div class="spot-title">大内宿（おおうちじゅく）</div>
+                    <div class="spot-desc">江戸時代の茅葺き屋根の街並みを歩きます。昔ながらの日本の雰囲気を楽しみましょう。</div>
+                    <div class="map-btn-group">
+                        <a href="https://maps.app.goo.gl/v8n9Hw4aMAUqYrZ57" target="_blank" class="map-btn parking">専用駐車場</a>
+                        <a href="https://maps.app.goo.gl/rGPuNY6Le8YF29U38" target="_blank" class="map-btn">Google マップ</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 景點 2：三澤屋（大蔥麵） -->
+            <div class="spot-card">
+                <div class="spot-image-box">
+                    <span class="spot-number">02</span>
+                    <img src="https://lh3.googleusercontent.com/d/1fhEotvCe0ygI4EkzlLnideGx2t-gEcoz" alt="三澤屋">
+                </div>
+                <div class="spot-content">
+                    <div class="spot-title">三澤屋（ねぎそば）</div>
+                    <div class="spot-desc">お昼ごはんです！「三澤屋」で箸の代わりに長いネギを使って食べる、名物の美味しいお蕎麦を味わいます。</div>
+                    <div class="map-btn-group">
+                        <a href="https://maps.app.goo.gl/dVkM1KkHutbEwThcA" target="_blank" class="map-btn">Google マップ</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 景點 3：豬苗代湖 -->
+            <div class="spot-card">
+                <div class="spot-image-box">
+                    <span class="spot-number">03</span>
+                    <img src="https://lh3.googleusercontent.com/d/1OHrwlOJw1128ZWeh2WT8LOJT8B854TYE" alt="猪苗代湖">
+                </div>
+                <div class="spot-content">
+                    <div class="spot-title">猪苗代湖（いなわしろこ）</div>
+                    <div class="spot-desc">「天鏡湖」と呼ばれる、とてもきれいな湖です。爽やかな風を感じながらリラックスできます。</div>
+                    <div class="map-btn-group">
+                        <a href="https://maps.app.goo.gl/FNTR8NaDBQu2PTNF7" target="_blank" class="map-btn parking">専用駐車場</a>
+                        <a href="https://maps.google.com/?q=豬苗代湖" target="_blank" class="map-btn">Google マップ</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 景點 4：安達太良SA下りフードコート -->
+            <div class="spot-card">
+                <div class="spot-image-box">
+                    <span class="spot-number">04</span>
+                    <img src="https://lh3.googleusercontent.com/d/1VPEwK1nY1mgrE_U0AC_92wlQbSCdBn7-" alt="安達太良SA">
+                </div>
+                <div class="spot-content">
+                    <div class="spot-title">安達太良SAフードコート</div>
+                    <div class="spot-desc">旅の最後のスポットです。サービスエリアでお土産を買ったり、美味しい軽食を食べたりします。</div>
+                    <div class="map-btn-group">
+                        <a href="https://maps.app.goo.gl/qN1B1wgCes1cjzp46" target="_blank" class="map-btn">Google マップ</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-note">
+            Ready for our trip
+        </div>
+    </div>
+
+</body>
+</html>
